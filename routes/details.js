@@ -1,17 +1,17 @@
 const express = require("express");
-const piratebayDetails = require("../crawllers/piratebay/details");
+const roflcopter2110Details = require("../crawllers/roflcopter2110/details");
 const o337xDetails = require("../crawllers/1337x/details");
 const limetorrentDetails = require("../crawllers/limetorrent/details");
 
 const router = express.Router();
 
-router.get("/piratebay", async (req, res) => {
+router.get("/roflcopter2110", async (req, res) => {
   let query = req.query.query;
 
   if (query === "" || !query) {
     res.send({ error: true, errorMessage: "Search term cannot be empty" });
   } else {
-    const data = await piratebayDetails(query);
+    const data = await roflcopter2110Details(query);
     res.send(data);
   }
 });
